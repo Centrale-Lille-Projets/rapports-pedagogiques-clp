@@ -1,0 +1,25 @@
+{
+    "name": "rapports-pedagogiques-clp",
+    "version": "0.0.0",
+    "description": "Un programme pour générer un PDF permettant de présenter de manière visuelle les rapports pédagogiques.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Centrale-Lille-Projets/rapports-pedagogiques-clp.git"
+    },
+    "author": "Cédric JUNG <cedced19@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Centrale-Lille-Projets/rapports-pedagogiques-clp/issues"
+    },
+    "homepage": "https://github.com/Centrale-Lille-Projets/rapports-pedagogiques-clp#readme",
+    "dependencies": {
+        "convert-excel-to-json": "^1.7.0",
+        "docx-templates": "^4.6.0",
+        "fs-extra": "^9.1.0",
+        "moment": "^2.29.1"
+    }
+}
