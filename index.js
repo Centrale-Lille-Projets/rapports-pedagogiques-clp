@@ -2,6 +2,7 @@ const excelToJson = require('convert-excel-to-json');
 const fs = require('fs-extra');
 const moment = require('moment');
 const createReport = require('docx-templates').createReport;
+const docxConverter = require('zapoj-office-to-pdf');
 
 const result = excelToJson({
     sourceFile: 'rapports.xlsx'
@@ -36,14 +37,18 @@ async function generate() {
 
             real.formattedDate = moment(new Date(real.A)).format("DD/MM/YYYY");
 
-            const filename = `result/${real.B} ${real.C}.docx`;
+            const filename = `result/${real.B} ${real.C}`;
             const buffer = await createReport({
                 template: firstPageTemplate,
                 data: real,
                 cmdDelimiter: ['{', '}']
             });
 
-            fs.writeFileSync(filename, buffer);
+            const pdfBuffer = await docxConverter(buffer)
+            fs.writeFileSync(filename + '.pdf', pdfBuffer);
+
+            // ou remplacer les deux dernières lignes par
+            // fs.writeFileSync(filename + '.docx', buffer);
         }
     }
 

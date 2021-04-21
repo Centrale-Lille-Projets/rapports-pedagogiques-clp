@@ -20,6 +20,7 @@
         "convert-excel-to-json": "^1.7.0",
         "docx-templates": "^4.6.0",
         "fs-extra": "^9.1.0",
-        "moment": "^2.29.1"
+        "moment": "^2.29.1",
+        "zapoj-office-to-pdf": "^1.0.1"
     }
 }
