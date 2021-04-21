@@ -8,7 +8,7 @@ npm install
 npm start
 ```
 
-## Pour faire fonctionner sous MacOS
+## Pour faire fonctionner sous MacOS
 
 Installer libreoffice et suivre [ce tutoriel](https://gist.github.com/pankaj28843/3ad78df6290b5ba931c1).
 
