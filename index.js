@@ -2,7 +2,7 @@ const excelToJson = require('convert-excel-to-json');
 const fs = require('fs-extra');
 const moment = require('moment');
 const createReport = require('docx-templates').createReport;
-const docxConverter = require('zapoj-office-to-pdf');
+const docxConverter = require('custom-soffice-to-pdf');
 
 const result = excelToJson({
     sourceFile: 'rapports.xlsx'
@@ -44,7 +44,16 @@ async function generate() {
                 cmdDelimiter: ['{', '}']
             });
 
-            const pdfBuffer = await docxConverter(buffer)
+
+            var isWin = process.platform === "win32";
+            var customCommand;
+            if (isWin) {
+                customCommand = '"C:\\Program Files\\LibreOffice\\program\\soffice"';
+            } else {
+                customCommand = 'soffice';
+            }
+
+            const pdfBuffer = await docxConverter(buffer, customCommand)
             fs.writeFileSync(filename + '.pdf', pdfBuffer);
 
             // ou remplacer les deux dernières lignes par
